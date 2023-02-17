@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}
+  {{post.text|truncatewords:3 }}
+{% endblock %}
+{% block content %}
+<div class="container py-5"
+  {% include 'posts/includes/post_card.html' with show_author_link=True show_group_link=True %}
+  {% include 'posts/includes/comments.html' %}
+</div>
+{% endblock %}

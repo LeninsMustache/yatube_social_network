@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  <title>Группа {{ group }}</title>
+{% endblock %}
+
+{% block header%} {{ group }} {% endblock %}
+
+{% block content %}
+  <div class="container py-5">
+    <h1>{{ group.title }}</h1>
+    <p>
+      {{ group.description }}
+    </p>
+    {% for post in page_obj %}
+      {% include 'posts/includes/post_card.html' with show_author_link=True show_group_link=False %}
+    {% endfor %}
+    {% include 'posts/includes/paginator.html' %}
+  </div>  
+{% endblock %}
